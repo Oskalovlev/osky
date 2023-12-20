@@ -1,0 +1,38 @@
+[tool.poetry]
+name = "osky"
+version = "0.1.0"
+description = ""
+authors = ["Oskalovlev <111913579+Oskalovlev@users.noreply.github.com>"]
+license = "MIT"
+readme = "README.md"
+packages = [{ include = "*", from = "src" },]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+fastapi = "^0.105.0"
+alembic = "^1.13.0"
+pydantic-settings = "^2.1.0"
+fastapi-users = "^12.1.2"
+fastapi-users-db-sqlalchemy = "^6.0.1"
+psycopg2-binary = "^2.9.9"
+asyncpg = "^0.29.0"
+pydantic-extra-types = "^2.2.0"
+taskipy = "^1.12.2"
+uvicorn = "^0.24.0.post1"
+phonenumbers = "^8.13.26"
+
+[tool.poetry.group.dev]
+optional = true
+
+[tool.poetry.group.dev.dependencies]
+black = "^23.12.0"
+pre-commit = "^3.6.0"
+
+[tool.taskipy.tasks]
+makemigrations = "alembic revision --autogenerate -m 'Create Database'"
+migrate = "alembic upgrade head"
+app = "uvicorn src.services:create_app --reload"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

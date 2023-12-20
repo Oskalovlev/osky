@@ -1,0 +1,1 @@
+from src.domain.mixins.entities.user_mixins import UserRelationMixin  # noqa
