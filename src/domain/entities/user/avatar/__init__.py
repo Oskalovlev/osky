@@ -1,0 +1,1 @@
+from src.domain.entities.user.avatar.models.avatar_model import AvatarModel  # noqa

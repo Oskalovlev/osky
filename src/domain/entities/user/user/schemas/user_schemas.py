@@ -5,7 +5,7 @@ from annotated_types import MaxLen, MinLen
 from fastapi_users import schemas
 from pydantic import UUID4, EmailStr
 
-from src.domain.entities.profile import ProfileSchem
+from src.domain.entities.user.profile import ProfileSchem
 
 
 class UserBaseSchema(schemas.BaseUser[uuid.UUID]):

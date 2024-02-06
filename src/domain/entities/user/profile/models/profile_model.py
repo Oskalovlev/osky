@@ -12,7 +12,7 @@ from src.domain.entities.base_model import BaseModel
 from src.domain.entities.short_annotate import short_annotate
 from src.domain.mixins.entities import UserRelationMixin
 if TYPE_CHECKING:
-    from src.domain.entities.profile import AvatarModel
+    from src.domain.entities.user.avatar import AvatarModel
 
 
 class ProfileModel(UserRelationMixin, BaseModel):

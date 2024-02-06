@@ -13,7 +13,7 @@ from src.domain.entities.base_model import BaseModel
 from src.domain.entities.short_annotate import short_annotate
 
 if TYPE_CHECKING:
-    from src.domain.entities.profile import ProfileModel
+    from src.domain.entities.user.profile import ProfileModel
 
 
 class UserModel(SQLAlchemyBaseUserTable[UUID], BaseModel):
