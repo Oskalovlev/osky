@@ -20,6 +20,7 @@ pydantic-extra-types = "^2.2.0"
 taskipy = "^1.12.2"
 uvicorn = "^0.24.0.post1"
 phonenumbers = "^8.13.26"
+prometheus-fastapi-instrumentator = "^6.1.0"
 
 [tool.poetry.group.dev]
 optional = true
@@ -31,7 +32,7 @@ pre-commit = "^3.6.0"
 [tool.taskipy.tasks]
 makemigrations = "alembic revision --autogenerate -m 'Create Database'"
 migrate = "alembic upgrade head"
-app = "uvicorn src.services:create_app --reload"
+app = "uvicorn src.services.web.main:app --reload"
 
 [build-system]
 requires = ["poetry-core"]

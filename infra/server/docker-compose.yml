@@ -1,0 +1,62 @@
+version: "3.8"
+
+services:
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    image: osky-app
+    container_name: osky-app
+    restart: unless-stopped
+
+    ports:
+      - "8010:8010"
+    networks:
+      - osky
+  
+  db:
+    image: postgres:15.2-alpine
+    restart: always
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    env_file:
+      - ./.env
+
+  web:
+    build: .
+    command: uvicorn src.services.web.main:app --reload --workers 1 --host 0.0.0.0 --port 8000
+    volumes:
+      - ./:/src/
+    ports:
+      - "8002:8000"
+    networks:
+      - osky
+
+
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./data_source/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+
+
+  grafana:
+    image: grafana/grafana-oss:latest
+    container_name: grafana
+    ports:
+      - "13000:3000"
+    volumes:
+      - ./data_source/grafana:/var/lib/grafana
+
+volumes:
+  data_source:
+  postgres_data:
+
+networks:
+  osky:

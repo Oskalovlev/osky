@@ -1,2 +1,3 @@
-from src.domain.entities.user.models.user_model import UserModel  # noqa
-from src.domain.entities.user.schemas.user_schemas import UserInSchema, UserOutSchema, UserDBSchema  # noqa
+from src.domain.entities.user.user import UserModel  # noqa
+from src.domain.entities.user.user import UserInSchema, UserOutSchema, UserDBSchema  # noqa
+from src.domain.entities.user.profile import ProfileModel  # noqa
