@@ -3,14 +3,19 @@ from fastapi.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
 from prometheus_fastapi_instrumentator import Instrumentator
 
-from src.services.web.routes.user.user_routes import router as user_router
+from src.services.web.config import app_settings as settings
+from src.services.web.routers.main_router import main_router as all_roters
 # from src.services.web.routes.user.auth_routes import router as auth_router
 # from common.security.security import JWTAuth
 # from starlette.middleware.authentication import AuthenticationMiddleware
 
-app = FastAPI()
+app = FastAPI(
+    title=settings.app.APP_TITLE,
+    description=settings.app.DESCRIPTION
+)
+
 # app.include_router(guest_router)
-app.include_router(user_router)
+app.include_router(all_roters)
 # app.include_router(auth_router)
 
 # Сборщик метрик Prometeus

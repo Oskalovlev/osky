@@ -16,6 +16,7 @@ if TYPE_CHECKING:
 
 
 class ProfileModel(UserRelationMixin, BaseModel):
+
     _user_id_unique = True
     _user_back_populates = "profile"
 
