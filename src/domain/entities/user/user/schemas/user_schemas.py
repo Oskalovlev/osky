@@ -1,40 +1,36 @@
-import uuid
+from uuid import UUID
 from typing import Annotated
-
 from annotated_types import MaxLen, MinLen
+
 from fastapi_users import schemas
-from pydantic import EmailStr, ConfigDict
+from pydantic import EmailStr
 
 from src.domain.entities.base_schema import PydanticBaseSchema
 
-# if TYPE_CHECKING:
-#     from src.domain.entities.user import ProfileSchema
+
+class UserBaseSchema(PydanticBaseSchema):
+
+    username: Annotated[str, MinLen(4), MaxLen(20)]
+    first_name: Annotated[str, MinLen(2), MaxLen(40)]
+    last_name: Annotated[str, MinLen(2), MaxLen(40)]
+    email: EmailStr
+    is_online: bool
+    profile: str
 
 
-# class UserInSchema(PydanticBaseSchema):
+class UserReadSchema(UserBaseSchema, schemas.BaseUser[UUID]):
 
-#     username: Annotated[str, MinLen(3), MaxLen(35)]
-#     email: EmailStr
-#     password: str
-#     confirm_password: str
-#     is_online: bool
+    pass
 
-
-# class UserOutSchema(PydanticBaseSchema):
-
-#     username: Annotated[str, MinLen(3), MaxLen(35)]
-#     email: EmailStr
-#     is_online: bool
-#     model_config = ConfigDict(from_attributes=True)
+    class Config:
+        from_attributes = True
 
 
-class UserReadSchema(schemas.BaseUser[uuid.UUID]):
+class UserCreateSchema(UserBaseSchema, schemas.BaseUserCreate):
+
     pass
 
 
-class UserCreateSchema(schemas.BaseUserCreate):
-    pass
+class UserUpdateSchema(UserBaseSchema, schemas.BaseUserUpdate):
 
-
-class UserUpdateSchema(schemas.BaseUserUpdate):
     pass

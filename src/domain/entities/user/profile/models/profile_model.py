@@ -1,5 +1,5 @@
 import uuid
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, Annotated
 
 from sqlalchemy import UUID, ForeignKey, String
 from sqlalchemy.orm import (
@@ -20,15 +20,16 @@ class ProfileModel(UserRelationMixin, BaseModel):
     _user_id_unique = True
     _user_back_populates = "profile"
 
-    id: Mapped[short_annotate.intpk]
     first_name: Mapped[str | None] = mapped_column(String(40))
     last_name: Mapped[str | None] = mapped_column(String(40))
-    avatar: Mapped["AvatarModel"] = relationship(back_populates="profile")
     phone: Mapped[str | None]
     telegram: Mapped[str | None]
+    bio: Mapped[str | None]
     followers: Mapped[list[uuid.UUID]] = mapped_column(
         UUID, ForeignKey("user.id", ondelete="SET NULL")
     )
     following: Mapped[list[uuid.UUID]] = mapped_column(
         UUID, ForeignKey("user.id", ondelete="SET NULL")
     )
+
+    avatar: Mapped["AvatarModel"] = relationship(back_populates="profile")

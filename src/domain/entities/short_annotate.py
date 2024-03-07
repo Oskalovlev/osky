@@ -5,7 +5,7 @@ from sqlalchemy import UUID
 from sqlalchemy.orm import mapped_column
 
 
-class ShortAnnotated():
+class ShortAnnotated:
 
     _primary_key_pk = True
 
@@ -19,4 +19,4 @@ class ShortAnnotated():
     )]
 
 
-short_annotate = ShortAnnotated()
+short_annotate = ShortAnnotated

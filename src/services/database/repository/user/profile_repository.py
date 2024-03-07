@@ -7,8 +7,7 @@ from sqlalchemy import (
 )
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from src.domain.entities import ProfileModel as Profile
-from src.domain.entities.user import ProfileSchema
+from src.domain.entities import ProfileModel as Profile, ProfileSchema
 
 
 class ProfileRepository:

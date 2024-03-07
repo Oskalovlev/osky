@@ -1,6 +1,3 @@
-import uuid
-
-from sqlalchemy import UUID
 from sqlalchemy.ext.asyncio import (
     AsyncSession,
     async_sessionmaker,
@@ -8,15 +5,13 @@ from sqlalchemy.ext.asyncio import (
 )
 from sqlalchemy.orm import (
     DeclarativeBase,
-    Mapped,
-    declared_attr,
-    mapped_column
+    declared_attr
 )
 
-from src.services.db.app.config import db_settings
+from src.services.database.app.config import db_settings
 
 async_engine = create_async_engine(
-    url=db_settings.db.DATABASE_URL_asyncpg,
+    url=db_settings.database.DATABASE_URL_asyncpg,
     echo=True,
 )
 
@@ -27,13 +22,11 @@ class Base(DeclarativeBase):
 
     @declared_attr
     def __tablename__(cls):
+
         name = cls.__name__.lower()
         if "model" in name:
-            return name.replace("model", "")
-
-    id: Mapped[uuid.UUID] = mapped_column(
-        UUID, primary_key=True, default=uuid.uuid4
-    )
+            tabblename = name.replace("model", "")
+            return tabblename
 
 
 async def get_async_session():

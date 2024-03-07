@@ -1,0 +1,2 @@
+from src.services.database.repository.user.user_repository import UserRepository as user_repository  # noqa
+from src.services.database.repository.user.profile_repository import ProfileRepository as profile_repository  # noqa

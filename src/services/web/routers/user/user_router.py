@@ -8,10 +8,14 @@ from fastapi import (
 )
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from src.services.db.app.database import get_async_session
-from src.services.db.repository import user_repository
-from src.domain.entities.user import UserModel as User
-from src.domain.entities.user import UserReadSchema, UserCreateSchema, UserUpdateSchema
+from src.services.database.app.database import get_async_session
+from src.services.database.repository import user_repository
+from src.domain.entities.user import (
+    UserModel as User,
+    UserReadSchema,
+    UserCreateSchema,
+    UserUpdateSchema
+)
 
 router = APIRouter()
 

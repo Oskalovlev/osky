@@ -4,6 +4,7 @@ from src.services.settings_schemas import AppConfig
 
 
 class AppSettings(BaseSettings):
+
     app: AppConfig
 
     model_config = SettingsConfigDict(

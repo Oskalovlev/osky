@@ -1,5 +1,4 @@
 from fastapi import FastAPI
-from fastapi.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
 from prometheus_fastapi_instrumentator import Instrumentator
 
@@ -36,8 +35,3 @@ app.add_middleware(
     allow_methods=methods,
     allow_headers=headers,
 )
-
-
-@app.get('/')
-def health_check():
-    return JSONResponse(content={"status": "Running!"})

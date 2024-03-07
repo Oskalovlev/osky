@@ -7,8 +7,8 @@ from fastapi import (
 )
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from src.services.db.app.database import get_async_session
-from src.services.db.repository import profile_repository
+from src.services.database.app.database import get_async_session
+from src.services.database.repository import profile_repository
 from src.domain.entities.user import ProfileModel as Profile
 from src.domain.entities.user import ProfileSchema
 

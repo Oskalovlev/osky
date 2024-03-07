@@ -9,7 +9,7 @@ main_router.include_router(
     user_router, prefix="/user", tags=["User"]
 )
 main_router.include_router(
-    profile_router, prefix="/profile", tags=["profile"]
+    profile_router, prefix="/profile", tags=["Profile"]
 )
 # main_router.include_router(
 #     publication_router, prefix="/publicication", tags=["Publicication"]

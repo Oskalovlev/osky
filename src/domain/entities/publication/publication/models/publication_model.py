@@ -9,7 +9,6 @@ from src.domain.entities.short_annotate import short_annotate
 
 class PublicationModel(BaseModel):
 
-    id: Mapped[short_annotate.uuidpk]
     post: Mapped[uuid.UUID] = mapped_column(
         UUID, ForeignKey("post.id", ondelete="CASCADE")
     )

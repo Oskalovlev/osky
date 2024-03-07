@@ -2,4 +2,4 @@
 
 from src.domain.entities.user import ProfileModel  # noqa
 from src.domain.entities.user import UserModel  # noqa
-from src.services.db.app.database import Base  # noqa
+from src.services.database.app.database import Base  # noqa
