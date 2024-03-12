@@ -17,24 +17,25 @@
 ![Grafana](https://img.shields.io/badge/Grafana-F2F4F9?style=for-the-badge&logo=grafana&logoColor=orange&labelColor=F2F4F9)
 ![Prometheus](https://img.shields.io/badge/Prometheus-000000?style=for-the-badge&logo=prometheus&labelColor=000000)
 
-<details><summary><h2>Структура проекта</h2></summary>
-    <details><summary><h4>Структура базы данных</h4></summary>
+
+<details><summary>Структура проекта</summary>
+    <details><summary>Структура базы данных</summary>
         <img src="/docs/db_.jpg"/>
     </details>
-    <details><summary><h4>Структура репозитория</h4></summary>
+    <details><summary>Структура репозитория</summary>
         <img src="/docs/rep_.jpg"/>
     </details>
-    <details><summary><h4>Специфика ендпойнтов в OpenAPI</h4></summary>
+    <details><summary>Специфика ендпойнтов в OpenAPI</summary>
         <img src="/docs/openapi_.jpg"/>
     </details>
-    <details><summary><h4>Документация Redoc</h4></summary>
+    <details><summary>Документация Redoc</summary>
         <img src="/docs/doc_.jpg"/>
     </details>
 </details>
 
 ---
 
-<details><summary><h2>Адрес проекта</h2></summary>
+<details><summary>Адрес проекта</summary>
 
 *(запускается локально)*
 
@@ -57,9 +58,9 @@ api/
 
 ---
 
-<details><summary><h2>Подготовка проекта к запуску</h2></summary>
+<details><summary>Подготовка проекта к запуску</summary>
 
-#### `3` пункт для локального запуска. `4` пункт для ведения разработки
+`3` пункт для локального запуска. `4` пункт для ведения разработки
 
 1. *Склонируйте репозиторий и перейдите в него*:
 
@@ -81,7 +82,7 @@ api/
 ---
 3. *Создайте и активируйте виртуальное окружение Poetry*:
 
-    <details><summary><h4>Установка Poetry(Если не установлено)</h4></summary>
+    <details><summary>Установка Poetry(Если не установлено)</summary>
 
    Для Linux, macOS, Windows (WSL):
    ```bash
@@ -112,7 +113,7 @@ api/
             ```
     </details>
 
-    <details><summary><h4>Запуск виртуального окружения</h4></summary>
+    <details><summary>Запуск виртуального окружения</summary>
 
     - Создать файл .toml:
      ```bash
@@ -138,7 +139,7 @@ api/
       ```
     </details>
 
-    <details><summary><h4>Потенциальные проблемы</h4></summary>
+    <details><summary>Потенциальные проблемы</summary>
 
    *a. виртуальное окружение Poetry недоступно при выборе интерпретатора*
 
@@ -187,7 +188,7 @@ api/
 
 ---
 
-<details><summary><h2>Для запуска в Docker-контейнере используйте инструкцию</h2></summary>
+<details><summary>Для запуска в Docker-контейнере используйте инструкцию</summary>
 
 1. *Запустите сборку контейнеров*:
 
@@ -206,7 +207,7 @@ api/
 
 ---
 
-<details><summary><h2>Для локального запуска используйте инструкцию</h2></summary>
+<details><summary>Для локального запуска используйте инструкцию</summary>
 
 1. *Выполните миграции*:
 
