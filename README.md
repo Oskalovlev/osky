@@ -1,14 +1,21 @@
 # Osky
-## Описание
 
 ![Osky Workflow](https://github.com/Oskalovlev/osky/actions/workflows/develop-push_workflow.yml/badge.svg)
 
-## Описание проекта
-### Внутренний сервис найма студентов.
+## Описание
+База проекта универсальна и подходит для разных сфер услуг. Цель - постоянный рефакторинг в процессе роста навыков.
+
+### Дополнение
+Личный демонстрационный проект для отработки навыков и внедрения новых технологий, если они уместны.
 
 
 ## Стек технологий
-![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54) ![Postgres](https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white)
+![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
+![FastAPI](https://img.shields.io/badge/fastapi-109989?style=for-the-badge&logo=FASTAPI&logoColor=white)
+![Postgres](https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-2CA5E0?style=for-the-badge&logo=docker&logoColor=white)
+![Grafana](https://img.shields.io/badge/Grafana-F2F4F9?style=for-the-badge&logo=grafana&logoColor=orange&labelColor=F2F4F9)
+![Prometheus](https://img.shields.io/badge/Prometheus-000000?style=for-the-badge&logo=prometheus&labelColor=000000)
 
 <details><summary><h2>Структура проекта</h2></summary>
     <details><summary><h4>Структура базы данных</h4></summary>
@@ -17,8 +24,8 @@
     <details><summary><h4>Структура репозитория</h4></summary>
         <img src="/docs/rep_.jpg"/>
     </details>
-    <details><summary><h4>Специфика ендпойнтов в Swagger</h4></summary>
-        <img src="/docs/swagg_.jpg"/>
+    <details><summary><h4>Специфика ендпойнтов в OpenAPI</h4></summary>
+        <img src="/docs/openapi_.jpg"/>
     </details>
     <details><summary><h4>Документация Redoc</h4></summary>
         <img src="/docs/doc_.jpg"/>
@@ -57,10 +64,10 @@ api/
 1. *Склонируйте репозиторий и перейдите в него*:
 
     ```sh
-    git clone https://github.com/Oskalovlev/emp_track.git
+    git clone https://github.com/Oskalovlev/osky.git
     ```
     ```sh
-    cd YaTrack-backend/
+    cd osky/
     ```
 ---
 2. *Для работы с PostgreSQL*:
@@ -205,23 +212,23 @@ api/
 
     * Инициализируйте миграции Alembic (опционально)
         ```sh
-        
+            alembic init
         ```
 
-    * Создайте миграции
+    * Создайте миграции (будут созданы с сортировкой по дате, но лучше добавить комментарий)
         ```sh
-        
+            alembic revision --autogenerate
         ```
 
     * Примените миграции
         ```sh
-
+            alembic upgrade head
         ```
 
 2. *Локальный запуск*:
 
     ```sh
-    python src/backend/manage.py runserver
+        poetry run task app (в активном Poetry окружением)
     ```
 </details>
 
