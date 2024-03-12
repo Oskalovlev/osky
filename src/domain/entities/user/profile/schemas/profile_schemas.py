@@ -1,28 +1,34 @@
-from __future__ import annotations
+import uuid
+from typing import Annotated
+from annotated_types import MaxLen, MinLen
 
-from typing import TYPE_CHECKING, Optional
-
-# from pydantic_extra_types.phone_numbers import PhoneNumber
-
-from src.domain.entities.base_schema import PydanticBaseSchema
-
-if TYPE_CHECKING:
-    from src.domain.entities.user import UserOutSchema
+from src.domain.entities.base_schema import (
+    PydanticBaseSchema, PydanticIntIDSchema, PydanticUUIDSchema
+)
 
 
-class TagSchema(PydanticBaseSchema):
-    id: int
+class TagSchema(PydanticIntIDSchema):
+
     name: str
 
 
-class ProfileSchem(PydanticBaseSchema):
-    id: int
-    user: "UserOutSchema"
-    avatar: Optional[str]
+class ProfileInSchema(PydanticBaseSchema):
+
+    user: uuid.UUID
+    first_name: Annotated[str, MinLen(2), MaxLen(40)]
+    last_name: Annotated[str, MinLen(2), MaxLen(40)]
     phone: str
+    bio: str
     telegram: str
-    followers: Optional[list["ProfileSchem"]]
-    followings: Optional[list["ProfileSchem"]]
+    followers: list[str]
+    followings: list[str]
+
+    avatar: str
 
     class Config:
         from_attributes = True
+
+
+class ProfileOutSchema(ProfileInSchema, PydanticUUIDSchema):
+
+    pass
