@@ -1,8 +1,7 @@
-from src.domain.entities.base_schema import PydanticBaseSchema
+from src.domain.entities.base_schema import PydanticIntIDSchema
 
 
-class AvatarSchema(PydanticBaseSchema):
+class AvatarSchema(PydanticIntIDSchema):
 
-    id: int
     file_name: str
     file_data: bytes

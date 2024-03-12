@@ -1,10 +1,10 @@
-from src.domain.entities.base_schema import PydanticBaseSchema
+from src.domain.entities.base_schema import PydanticIntIDSchema
 from src.domain.entities.publication.files import (
     MusicSchema, ImageSchema, PdfSchema
 )
 
 
-class FilesSchema(PydanticBaseSchema):
+class FilesSchema(PydanticIntIDSchema):
 
     music_id: "MusicSchema"
     image_id: "ImageSchema"

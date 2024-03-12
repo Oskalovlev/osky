@@ -1,12 +1,11 @@
 from datetime import date
 
-from pydantic import UUID4
+from src.domain.entities.base_schema import (
+    PydanticBaseSchema, PydanticUUIDSchema
+)
 
-from src.domain.entities.base_schema import PydanticBaseSchema
 
+class PostSchema(PydanticBaseSchema, PydanticUUIDSchema):
 
-class PostSchema(PydanticBaseSchema):
-
-    id: UUID4
     body: str
     created_at: date

@@ -10,7 +10,7 @@ from sqlalchemy.orm import (
 )
 
 if TYPE_CHECKING:
-    from src.domain.entities.user import UserModel
+    from src.domain.entities import UserModel
 
 
 class UserRelationMixin:

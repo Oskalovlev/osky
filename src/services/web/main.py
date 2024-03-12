@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from prometheus_fastapi_instrumentator import Instrumentator
 
-from src.services.web.config import app_settings as settings
+from src.services.web.app.config import app_settings as settings
 from src.services.web.routers.main_router import main_router as all_roters
 # from src.services.web.routes.user.auth_routes import router as auth_router
 # from common.security.security import JWTAuth

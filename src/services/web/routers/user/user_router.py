@@ -30,6 +30,7 @@ async def get_multi(
     session: AsyncSession = Depends(get_async_session)
 ) -> User:
     """Получеине пользователей."""
+
     get_users = await user_repository.get_multi_users(users, session)
     return get_users
 
@@ -44,6 +45,7 @@ async def create(
     session: AsyncSession = Depends(get_async_session)
 ) -> User:
     """Создание пользователя."""
+
     new_user = await user_repository.create_user(user, session)
     return new_user
 

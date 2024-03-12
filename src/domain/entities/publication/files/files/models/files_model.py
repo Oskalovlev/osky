@@ -1,10 +1,10 @@
 from sqlalchemy import ForeignKey
 from sqlalchemy.orm import Mapped, mapped_column
 
-from src.domain.entities.base_model import BaseModel
+from src.domain.entities.base_model import BaseIntIDModel
 
 
-class FilesModel(BaseModel):
+class FilesModel(BaseIntIDModel):
 
     music_id: Mapped[int] = mapped_column(
         ForeignKey("music.id", ondelete="SET NULL")

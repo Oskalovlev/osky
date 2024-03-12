@@ -8,14 +8,13 @@ from sqlalchemy.orm import (
     relationship
 )
 
-from src.domain.entities.base_model import BaseModel
-from src.domain.entities.short_annotate import short_annotate
+from src.domain.entities.base_model import BaseUUIDModel
 from src.domain.mixins.entities import UserRelationMixin
 if TYPE_CHECKING:
-    from src.domain.entities.user.avatar import AvatarModel
+    from src.domain.entities import PublicationModel
 
 
-class ProfileModel(UserRelationMixin, BaseModel):
+class ProfileModel(UserRelationMixin, BaseUUIDModel):
 
     _user_id_unique = True
     _user_back_populates = "profile"
@@ -32,4 +31,7 @@ class ProfileModel(UserRelationMixin, BaseModel):
         UUID, ForeignKey("user.id", ondelete="SET NULL")
     )
 
-    avatar: Mapped["AvatarModel"] = relationship(back_populates="profile")
+    publications: Mapped["PublicationModel"] = relationship(
+        back_populates="publisher"
+    )
+    avatar: Mapped[int] = mapped_column(ForeignKey("avatar.id"), unique=True)

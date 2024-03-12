@@ -3,13 +3,11 @@ from datetime import datetime
 from sqlalchemy import ForeignKey, text
 from sqlalchemy.orm import Mapped, mapped_column
 
-from src.domain.entities.base_model import BaseModel
-from src.domain.entities.short_annotate import short_annotate
+from src.domain.entities.base_model import BaseIntIDModel
 
 
-class CommentModel(BaseModel):
+class CommentModel(BaseIntIDModel):
 
-    id: Mapped[short_annotate.uuidpk]
     user: Mapped[int] = mapped_column(
         ForeignKey("profile.id", ondelete="CASCADE")
     )

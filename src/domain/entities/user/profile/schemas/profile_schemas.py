@@ -1,25 +1,22 @@
-# from __future__ import annotations
+import uuid
+from typing import Annotated
+from annotated_types import MaxLen, MinLen
 
-# from typing import TYPE_CHECKING
-
-from src.domain.entities.base_schema import PydanticBaseSchema
-
-# if TYPE_CHECKING:
-    # from src.domain.entities.user import UserReadSchema
-    # from src.domain.entities.user.avatar import AvatarSchema
+from src.domain.entities.base_schema import (
+    PydanticBaseSchema, PydanticIntIDSchema, PydanticUUIDSchema
+)
 
 
-class TagSchema(PydanticBaseSchema):
-    id: int
+class TagSchema(PydanticIntIDSchema):
+
     name: str
 
 
-class ProfileSchema(PydanticBaseSchema):
+class ProfileInSchema(PydanticBaseSchema):
 
-    id: int
-    user: int
-    first_name: str
-    last_name: str
+    user: uuid.UUID
+    first_name: Annotated[str, MinLen(2), MaxLen(40)]
+    last_name: Annotated[str, MinLen(2), MaxLen(40)]
     phone: str
     bio: str
     telegram: str
@@ -30,3 +27,8 @@ class ProfileSchema(PydanticBaseSchema):
 
     class Config:
         from_attributes = True
+
+
+class ProfileOutSchema(ProfileInSchema, PydanticUUIDSchema):
+
+    pass

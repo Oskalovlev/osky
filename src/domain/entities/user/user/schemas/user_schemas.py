@@ -11,11 +11,9 @@ from src.domain.entities.base_schema import PydanticBaseSchema
 class UserBaseSchema(PydanticBaseSchema):
 
     username: Annotated[str, MinLen(4), MaxLen(20)]
-    first_name: Annotated[str, MinLen(2), MaxLen(40)]
-    last_name: Annotated[str, MinLen(2), MaxLen(40)]
     email: EmailStr
     is_online: bool
-    profile: str
+    # profile: str
 
 
 class UserReadSchema(UserBaseSchema, schemas.BaseUser[UUID]):
